@@ -1,0 +1,78 @@
+﻿<Window x:Class="TheCashier.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheCashier"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="628" Width="448">
+    <Grid Margin="0,0,0,-16" HorizontalAlignment="Left" Width="799">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="216*"/>
+            <ColumnDefinition Width="583*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="The Cashier" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Height="39" Width="156" FontFamily="Adobe Caslon Pro Bold" FontSize="27"/>
+        <Label Content="Item" HorizontalAlignment="Left" Margin="34,64,0,0" VerticalAlignment="Top" Height="26" Width="34"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="34,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.432,0.408" Height="26" Width="35"/>
+        <Label Content="Jumlah" HorizontalAlignment="Left" Margin="34,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.17,-0.129" Height="26" Width="47"/>
+        <Label Content="Harga (Rp)" HorizontalAlignment="Left" Margin="34,157,0,0" VerticalAlignment="Top" Height="26" Width="67"/>
+        <TextBox x:Name="itemNameBox" HorizontalAlignment="Left" Margin="0,72,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18" Grid.Column="1"/>
+        <ComboBox x:Name="typeBox" Grid.Column="1" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top" Width="120" Height="22">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FF00FFE8" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem>Barang</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Jasa</ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="quantityBox" Grid.Column="1" HorizontalAlignment="Left" Margin="0,134,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
+        <TextBox x:Name="priceBox" Grid.Column="1" HorizontalAlignment="Left" Margin="0,170,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.496,-0.412" Height="18"/>
+        <Button x:Name="addButton" Content="Tambahkan" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="0,214,0,0" VerticalAlignment="Top" Width="120" Click="AddButton_Click" Background="#FF0FFF00" FontFamily="DFPOP1-W9" FontSize="18"/>
+
+        <Label x:Name="totalLabel" Content="{}" HorizontalAlignment="Left" Margin="206,517,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.042,0.493" Height="28" Width="130" Grid.ColumnSpan="2" Background="White" Foreground="#FF8B2424">
+            <Label.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.OpacityMask>
+        </Label>
+        <ListBox x:Name="lisBox" Margin="10,291,463,133" Grid.ColumnSpan="2" FontFamily="Consolas">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding tittle}" TextAlignment="Left" />
+                        <TextBlock Grid.Column="1" Text="{Binding quantity}"  TextAlignment="Center"  />
+                        <TextBlock Grid.Column="2" Text="{Binding price}"  TextAlignment="Center" />
+                        <TextBlock Grid.Column="3" Text="{Binding subtotal}" TextAlignment="Right" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Margin="10,245,463,342" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Item"  TextAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="quantity"  TextAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="price" TextAlignment="Center"/>
+                <TextBlock Grid.Column="3" Text="subtotal" TextAlignment="Center"/>
+            </Grid>
+        </ListBox>
+        <Label Content="TOTAL" HorizontalAlignment="Left" Margin="143,519,0,0" VerticalAlignment="Top"/>
+        <Label Content="v1.0" HorizontalAlignment="Left" Margin="165,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.181,-0.083" FontFamily="Bahnschrift"/>
+
+    </Grid>
+</Window>
