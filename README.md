@@ -1,5 +1,5 @@
 
-# TheCashier V 0.1
+# TheCashier V 1.0
 Fungsi aplikasi ini seperti halnya aplikasi kasir biasa dimana didalamnya kita dapat menginputkan item,jenis, jumlah maupun harga agar dijumlahkan sehingga muncul hasil akhir /total
 
 ## Scope & Functionalities 
